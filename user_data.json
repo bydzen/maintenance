@@ -1,0 +1,20 @@
+{
+    "meta": {
+        "description": "Rayatiga is an IT agency providing web services like domain name reservation, static website development, WordPress website development, cloud service, server establishment, and other custom technology services. Free maintenance is included until the subscription ends."
+    },
+    "header": {
+        "message": "Under Maintenance",
+        "scheduled": "July 20, 2024"
+    },
+    "main": {
+        "email": "contact@rayatiga.com",
+        "credit": "The Rayatiga Team"
+    },
+    "footer": {
+        "site": "rayatiga.com",
+        "completed": "November 2, 2024"
+    },
+    "countdown": {
+        "time": "November 2, 2024 10:00:00"
+    }
+}
