@@ -1,11 +1,3 @@
-const metaDescription = document.querySelector('meta[name="description"]');
-const message = document.querySelector(`[data-script="message"]`);
-const scheduled = document.querySelector(`[data-script="scheduled"]`);
-const email = document.querySelector(`[data-script="email"]`);
-const credit = document.querySelector(`[data-script="credit"]`);
-const site = document.querySelector(`[data-script="site"]`);
-const completed = document.querySelector(`[data-script="completed"]`);
-
 async function fetchData(url) {
     const response = await fetch(url);
     return response.json();
@@ -15,6 +7,7 @@ const dataPromise = fetchData("user_data.json");
 
 dataPromise
     .then((data) => {
+        dataDocumentMeta(data);
         dataDisplay(data);
         dataCountdown(data);
     })
@@ -22,8 +15,22 @@ dataPromise
         window.location.hostname == "127.0.0.1" ? console.error("Error fetching data:", error) : null;
     });
 
+dataDocumentMeta = (data) => {
+    document.title = data.document.title;
+    const meta = document.createElement("meta");
+    meta.name = "description";
+    meta.content = data.meta.description;
+    document.getElementsByTagName("head")[0].appendChild(meta);
+};
+
 dataDisplay = (data) => {
-    metaDescription.setAttribute("content", data.meta.description);
+    const message = document.querySelector(`[data-script="message"]`);
+    const scheduled = document.querySelector(`[data-script="scheduled"]`);
+    const email = document.querySelector(`[data-script="email"]`);
+    const credit = document.querySelector(`[data-script="credit"]`);
+    const site = document.querySelector(`[data-script="site"]`);
+    const completed = document.querySelector(`[data-script="completed"]`);
+
     message.outerHTML = data.header.message;
     scheduled.outerHTML = data.header.scheduled;
     email.setAttribute("href", `mailto:${data.main.email}`);
@@ -33,7 +40,6 @@ dataDisplay = (data) => {
 };
 
 dataCountdown = (data) => {
-    
     updateCountdown = () => {
         const now = new Date();
         const targetDate = new Date(data.countdown.time);
