@@ -26,6 +26,7 @@ body {
     justify-content: center;
     background: var(--clr-red);
     font-family: "Montserrat", sans-serif;
+    transition: background 0.25s cubic-bezier(1, 0.25, 0.25, 1), color 0.25s cubic-bezier(1, 0.25, 0.25, 1);
 }
 .container {
     display: flex;
@@ -33,6 +34,22 @@ body {
     align-items: center;
     flex-direction: column;
     padding: 16px 16px 64px 16px;
+}
+
+button {
+    right: 32px;
+    bottom: 32px;
+    border: none;
+    padding: 16px;
+    cursor: pointer;
+    background: none;
+    position: absolute;
+    font-size: inherit;
+    border-radius: 999px;
+    transition: transform 0.5s cubic-bezier(1, 0.25, 0.25, 1), filter 0.25s cubic-bezier(1, 0.25, 0.25, 1);
+}
+button:hover {
+    transform: translateY(-12px) scale(1.5);
 }
 
 header {
@@ -138,5 +155,32 @@ footer p {
     }
     to {
         opacity: 1;
+    }
+}
+
+.adjust {
+    --clr-red: #222222;
+    --clr-white: #eeeeee;
+    --clr-gray: #555555;
+}
+.adjust button {
+    filter: brightness(0.75);
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        --clr-red: #222222;
+        --clr-white: #eeeeee;
+        --clr-gray: #555555;
+    }
+    button {
+        filter: brightness(0.75);
+    }
+    .adjust {
+        --clr-red: #e34040;
+        --clr-gray: #f0a8a8;
+        --clr-white: #ffffff;
+    }
+    .adjust button {
+        filter: brightness(1);
     }
 }
