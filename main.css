@@ -59,6 +59,7 @@ header {
 }
 header p {
     font-size: small;
+    font-weight: 500;
     color: var(--clr-gray);
 }
 
@@ -119,6 +120,7 @@ main .credit {
 }
 main .credit p {
     font-size: 80%;
+    font-weight: 500;
     color: var(--clr-gray);
 }
 main .credit p::before {
@@ -133,12 +135,20 @@ footer {
 }
 footer p {
     font-size: small;
+    font-weight: 500;
     color: var(--clr-gray);
 }
 
 @media (max-width: 590px) {
     body {
         font-size: 16px;
+    }
+    button {
+        right: 0;
+        bottom: 0;
+    }
+    button:hover {
+        transform: none;
     }
     main .countdown svg {
         max-width: 64px;
