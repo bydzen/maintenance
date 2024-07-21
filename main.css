@@ -146,6 +146,7 @@ footer p {
     button {
         right: 0;
         bottom: 0;
+        position: fixed;
     }
     button:hover {
         transform: none;
@@ -170,8 +171,8 @@ footer p {
 
 .adjust {
     --clr-red: #222222;
-    --clr-white: #eeeeee;
     --clr-gray: #555555;
+    --clr-white: #eeeeee;
 }
 .adjust button {
     filter: brightness(0.75);
@@ -179,8 +180,8 @@ footer p {
 @media (prefers-color-scheme: dark) {
     :root {
         --clr-red: #222222;
-        --clr-white: #eeeeee;
         --clr-gray: #555555;
+        --clr-white: #eeeeee;
     }
     button {
         filter: brightness(0.75);
